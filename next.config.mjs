@@ -7,7 +7,17 @@ await import("./src/env.mjs");
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
+  webpack(next_config) {
+    next_config.experiments = {
+      asyncWebAssembly: true,
+      layers: true,
+    };
 
+    return next_config;
+  },
+  images: {
+    domains: ['img.icons8.com'],
+  },
   /**
    * If you have `experimental: { appDir: true }` set, then you must comment the below `i18n` config
    * out.
@@ -18,5 +28,7 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  // webpack(config){}
+
 };
 export default config;
