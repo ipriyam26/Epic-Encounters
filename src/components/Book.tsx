@@ -2,10 +2,11 @@ import type Book from "~/types/Book";
 
 type BookProps = {
     book: Book;
+    onClick: (book: Book) => void;
 };
 
 
-export function Book({book}: BookProps) { // export function Book({ book }: { book: Book}) {
+export function Book({book,onClick}: BookProps) { // export function Book({ book }: { book: Book}) {
 
     return ( 
         // <a key={book.Title} href={book.infoLink} target="_blank" rel="noreferrer" className="flex px-4 py-2 my-2 mx-6 rounded-lg overflow-hidden shadow-lg transition-all duration-200 ease-in-out transform hover:scale-105 w-full h-56 md:w-1/4">
@@ -18,9 +19,10 @@ export function Book({book}: BookProps) { // export function Book({ book }: { bo
         //     </p>
         //   </div>
         // </a>
-        <a 
-        href={book.infoLink} 
-        target="_blank" 
+        <div
+        onClick={() => onClick(book)}
+        // href={book.infoLink} 
+        // target="_blank" 
         rel="noreferrer" 
         className="flex my-4 mx-6 fadeInUp md:mx-2 lg:mx-6 bg-wild-blue-yonder rounded-lg overflow-hidden shadow-lg transition-all duration-200 ease-in-out transform hover:scale-105 h-full sm:h-52 w-full md:max-w-md lg:max-w-43 xl:max-w-27">
         <img className="w-full sm:w-2/5 h-1/3 sm:h-full object-cover" src={book.image} alt={book.Title} />
@@ -31,7 +33,7 @@ export function Book({book}: BookProps) { // export function Book({ book }: { bo
                 {book.description.slice(0, 100)}...
             </p>
         </div>
-    </a> 
+    </div> 
     
         
         // <a key={book.infoLink} href={book.infoLink} target="_blank" rel="noreferrer" className="w-64 m-4 bg-wild-blue-yonder rounded-lg overflow-hidden shadow-lg transition-all duration-200 ease-in-out transform hover:scale-105">
