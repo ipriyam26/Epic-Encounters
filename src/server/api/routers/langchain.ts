@@ -12,6 +12,7 @@ import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import { PineconeStore } from "langchain/vectorstores/pinecone";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 import { initializeApp } from "firebase/app";
+import type Book from "~/types/Book";
 
 const firebaseConfig = {
   apiKey: env.FIREBASE_API_KEY,
@@ -30,10 +31,8 @@ const bookCollection = collection(db, "book");
 export const langchainRouter = createTRPCRouter({
   search: publicProcedure
     .input(z.object({ text: z.string() }))
-
     .mutation(async ({ input }) => {
-      const results = await search_db(input.text);
-
+      const results = (await search_db(input.text)) as Book[];
       return {
         results: results,
       };

@@ -4,6 +4,10 @@ export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+     maxWidth:{
+      '27':'27%',
+      '43':'43%',
+     } ,
       fontFamily: {
         sans: ["var(--font-quicksankd)"],
       },

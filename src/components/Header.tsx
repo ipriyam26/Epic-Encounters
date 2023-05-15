@@ -2,7 +2,7 @@
 
 const Header = () => {
     return (
-        <header className="bg-eclipse py-6 px-4 sm:px-6 lg:px-8 fixed w-full z-10">
+        <header className="bg-eclipse py-6 px-4 sm:px-6 lg:px-8  w-full z-10">
             <div className="flex items-center justify-between h-16">
                 <div className="flex items-center">
                     <img
