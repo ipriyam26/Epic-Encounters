@@ -26,7 +26,7 @@ const Home: NextPage = () => {
     <>
       <div className={`${quicksand.variable}`} >
         <Header />
-        <div className="min-h-screen bg-eclipse pt-12 flex flex-col items-center justify-center sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-eclipse pt-12 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center">
             <h2 className="text-6xl text-moonstone_blue font-bold mb-4">
               Hear the Call of the Books! 📣📚
