@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: #3c3b3d;
+  background-color: #171717;
 }
 
 @keyframes fadeInUp {

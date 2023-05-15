@@ -2,7 +2,7 @@
 
 const Header = () => {
     return (
-        <header className="bg-eclipse py-6 px-4 sm:px-6 lg:px-8  w-full z-10">
+        <header className=" py-6 px-4 sm:px-6 lg:px-8  w-full z-10">
             <div className="flex items-center justify-between h-16">
                 <div className="flex items-center">
                     <img
@@ -15,9 +15,9 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="block">
-                    <a href="/newpage" className="text-moonstone_blue hover:text-wild-blue-yonder">
+                    {/* <a href="/newpage" className="text-moonstone_blue hover:text-wild-blue-yonder">
                         Example
-                    </a>
+                    </a> */}
                 </div>
             </div>
         </header>

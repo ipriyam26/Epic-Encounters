@@ -48,11 +48,11 @@ export function Book({ book, onClick, isSelected }: BookProps) { // export funct
                 !isSelected && (
                     <div
                         onClick={handleClick}
-                        className="flex my-4 mx-6 fadeInUp md:mx-2 lg:mx-6 bg-wild-blue-yonder rounded-lg overflow-hidden shadow-lg transition-all duration-200 ease-in-out transform hover:scale-105 h-full sm:h-52 w-full md:max-w-md lg:max-w-43 xl:max-w-27"
+                        className="flex my-4 mx-6 fadeInUp md:mx-2 lg:mx-6 bg-eclipse rounded-lg overflow-hidden shadow-lg transition-all duration-200 ease-in-out transform hover:scale-105 h-full sm:h-52 w-full md:max-w-md lg:max-w-43 xl:max-w-27"
                     >
                         <img className="w-full sm:w-2/5 h-1/3 sm:h-full object-cover" src={book.image} alt={book.Title} />
                         <div className="px-6 py-4 w-full sm:w-2/3">
-                            <div className="font-bold text-lg sm:text-xl mb-2 text-manatee">{book.Title}</div>
+                            <div className="font-bold text-lg sm:text-xl mb-2 text-moonstone_blue">{book.Title}</div>
                             <p className="text-manatee text-sm sm:text-base">
                                 {book.authors[0]} <br />
                                 {book.description.slice(0, 100)}...
