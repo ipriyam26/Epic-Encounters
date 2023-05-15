@@ -1,17 +1,19 @@
 import { ThreeDots } from "react-loader-spinner"; // Don't forget to install this package!
 import type Book from "~/types/Book";
 import { Book as GridBook } from "./Book";
-import { useState } from "react";
+import { type Dispatch, type SetStateAction } from "react";
+import SelectedBook from "./SelectedBook";
 
 interface BookGridProps {
   isLoading: boolean;
   books: Book[];
+  selectedBook: Book | null
+  setSelectedBook: Dispatch<SetStateAction<Book | null>>;
 }
 
 
 
-const BookGrid = ({ isLoading, books = [] }: BookGridProps) => {
-  const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+const BookGrid = ({ isLoading, books = [], selectedBook, setSelectedBook }: BookGridProps) => {
   return (
     <>
       {
@@ -21,7 +23,7 @@ const BookGrid = ({ isLoading, books = [] }: BookGridProps) => {
           </div>
         )
       }
-      {selectedBook && <SelectedBook book={selectedBook} />}
+      {selectedBook && !isLoading && <SelectedBook book={selectedBook} />}
 
       <div className="flex  w-full flex-wrap justify-center px-2">
         {isLoading ? (
@@ -30,46 +32,11 @@ const BookGrid = ({ isLoading, books = [] }: BookGridProps) => {
           </div>
         ) : (
 
-          books.map((book) => <GridBook onClick={(book) => setSelectedBook(book)} key={book.Title} book={book}></GridBook>)
+          books.map((book) => <GridBook isSelected={selectedBook?.Title === book.Title} onClick={(book) => setSelectedBook(book)} key={book.Title} book={book}></GridBook>)
         )}
       </div>
     </>
   );
 };
-const SelectedBook = ({ book }: { book: Book }) => (
-<div className="bg-wild_blue_yonder my-10 mx-8 lg:grid lg:grid-cols-4 gap-1 rounded-lg overflow-hidden shadow-lg p-6 transition-all duration-200 ease-in-out transform scale-105">
-  <div className="sm:bg-eclipse md:mx-44 md:py-10  rounded-lg lg:hidden">
-    <img className="object-contain block lg:hidden  rounded-lg mx-auto my-auto h-48 w-full " src={book.image} alt={book.Title} />
-  </div>
-  <img className="hidden lg:block   lg:object-cover rounded-lg mx-auto my-auto  lg:h-96 lg:w-auto" src={book.image} alt={book.Title} />
- 
-  <div className="mt-6 lg:mt-0 lg:col-span-3 flex flex-col justify-around text-white">
-    <h1 className="font-bold text-2xl lg:text-3xl mb-2">{book.Title}</h1>
-    <h2 className="font-medium text-lg lg:text-2xl mb-2 italic">{book.authors.join(", ")}</h2>
-    <p className="text-sm lg:text-lg mb-2">
-      {book.description}
-    </p>
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-      <p className="text-sm lg:text-base mb-2">
-        <strong className="underline text-eclipse">Publisher:</strong> {book.publisher}
-      </p>
-      <p className="text-sm lg:text-base mb-2">
-        <strong className="underline text-eclipse">Published Date:</strong> {book.publishedDate}
-      </p>
-      <p className="text-sm lg:text-base mb-2">
-        <strong className="underline text-eclipse">Categories:</strong> {book.categories.join(", ")}
-      </p>
-      <p className="text-sm lg:text-base mb-2">
-        <strong className="underline text-eclipse">Ratings Count:</strong> {book.ratingsCount}
-      </p>
-    </div>
-    <a href={book.infoLink} target="_blank" rel="noreferrer" className="mt-4 inline-block bg-eclipse rounded-lg font-bold text-lg lg:text-xl transition-colors duration-200 ease-in-out hover:bg-whittext-white hover:text-moonstone_blue py-2 px-4">More info</a>
-  </div>
-</div>
-
-
-);
-//http://books.google.com/books/content?id=9VCz8zjqDQ8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api
-//https://books.google.co.in/books/content?id=9VCz8zjqDQ8C&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72kJpGTOo-p75rqOjdAWA5vLXlu4WJyZhpXaWWW5h0vqL0DJOODCx4yu0OmrvQRkyCZBJX3V0CONX5n-frA_FxbR-aFTK1vn_QHpjV857m8szEtNip0WsgxvwTVaXv2-bE-oxtK
 
 export default BookGrid;
