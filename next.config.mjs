@@ -16,7 +16,7 @@ const config = {
     return next_config;
   },
   images: {
-    domains: ['img.icons8.com'],
+    domains: ['img.icons8.com','books.google.com'],
   },
   /**
    * If you have `experimental: { appDir: true }` set, then you must comment the below `i18n` config

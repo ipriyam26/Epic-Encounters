@@ -1,5 +1,6 @@
 import type Book from "~/types/Book";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 
 type BookProps = {
     book: Book;
@@ -37,7 +38,11 @@ export function Book({ book, onClick, isSelected }: BookProps) {
                     onClick={handleClick}
                     className="fadeInUp mx-6 my-4 flex h-40  w-full transform overflow-hidden rounded-lg bg-eclipse shadow-lg transition-all duration-200 ease-in-out hover:scale-105 sm:h-52 md:mx-2 md:max-w-md lg:mx-6 lg:max-w-43 xl:max-w-27"
                 >
-                    <img
+                    <Image
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAA"
+                        placeholder="blur"
+                        height={300}
+                        width={150}
                         className=" w-1/2 object-cover sm:h-full sm:w-2/5"
                         src={book.image}
                         alt={book.Title}
@@ -47,7 +52,7 @@ export function Book({ book, onClick, isSelected }: BookProps) {
                             {book.Title}
                         </div>
                         <p className="text-white my-1 text-sm sm:text-base md:text-lg font-bold">
-                            {book.authors[0]} 
+                            {book.authors[0]}
                         </p>
 
                         <p className="text-xs text-manatee sm:text-base">

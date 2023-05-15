@@ -1,5 +1,5 @@
 import { type NextPage } from "next";
-import { Quicksand } from "@next/font/google";
+import { Quicksand } from "next/font/google"
 import { type FormEvent, useState } from "react";
 import { api } from "~/utils/api";
 import Header from "~/components/Header";
@@ -14,7 +14,7 @@ const quicksand = Quicksand({
 });
 
 const Home: NextPage = () => {
-  const [inputValue, setInputValue] = useState(""); // State to hold input value
+  const [inputValue, setInputValue] = useState("");
   const { mutate, data, isLoading } = api.langchain.search.useMutation();
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {

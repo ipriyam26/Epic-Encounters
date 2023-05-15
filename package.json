@@ -9,7 +9,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@next/font": "^13.4.2",
     "@pinecone-database/pinecone": "^0.1.5",
     "@t3-oss/env-nextjs": "^0.2.1",
     "@tanstack/react-query": "^4.28.0",
