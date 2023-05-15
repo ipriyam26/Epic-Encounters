@@ -32,7 +32,7 @@ const Home: NextPage = () => {
               Hear the Call of the Books! 📣📚
             </h2>
             <p className="mb-4 text-xl text-manatee">
-            Just enter your preferred plot or book theme, and we&apos;ll reveal the book that&apos;s waiting to whisk you away on a captivating journey.
+              Just enter your preferred plot or book theme, and we&apos;ll reveal the book that&apos;s waiting to whisk you away on a captivating journey.
             </p>
             <form
               action="submit"
