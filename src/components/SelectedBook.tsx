@@ -4,33 +4,53 @@ import type Book from "~/types/Book";
 const SelectedBook = ({ book }: { book: Book }) => (
     <motion.div
         layoutId={book.Title}
-        className="bg-wild_blue_yonder my-10 mx-8 lg:grid lg:grid-cols-4 gap-1 rounded-lg overflow-hidden shadow-lg p-6 transition-all duration-200 ease-in-out transform scale-105"
+        className="gap-1 p-6 mx-8 my-10 overflow-hidden transition-all duration-200 ease-in-out transform scale-105 rounded-lg shadow-lg bg-wild_blue_yonder lg:grid lg:grid-cols-4"
     >
-        <motion.div className="sm:bg-eclipse md:mx-44 md:py-10 rounded-lg lg:hidden">
-            <motion.img layoutId={`image-${book.Title}`} className="object-contain block lg:hidden rounded-lg mx-auto my-auto h-48 w-full" src={book.image} alt={book.Title} />
+        <motion.div className="rounded-lg sm:bg-eclipse md:mx-44 md:py-10 lg:hidden">
+            <motion.img
+                layoutId={`image-${book.Title}`}
+                className="block object-contain w-full h-48 mx-auto my-auto rounded-lg lg:hidden"
+                src={book.image}
+                alt={book.Title}
+            />
         </motion.div>
-        <motion.img className="hidden lg:block lg:object-cover rounded-lg mx-auto my-auto lg:h-96 lg:w-auto" src={book.image} alt={book.Title} />
-        <div className="mt-6 lg:mt-0 lg:col-span-3 flex flex-col justify-around text-white">
-            <h1 className="font-bold text-2xl lg:text-3xl mb-2">{book.Title}</h1>
-            <h2 className="font-medium text-lg lg:text-2xl mb-2 italic">{book.authors.join(", ")}</h2>
-            <p className="text-sm lg:text-lg mb-2">
-                {book.description}
-            </p>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                <p className="text-sm lg:text-base mb-2">
-                    <strong className="underline text-eclipse">Publisher:</strong> {book.publisher}
+        <motion.img
+            className="hidden mx-auto my-auto rounded-lg lg:block lg:h-96 lg:w-auto lg:object-cover"
+            src={book.image}
+            alt={book.Title}
+        />
+        <div className="flex flex-col justify-around mt-6 text-white lg:col-span-3 lg:mt-0">
+            <h1 className="mb-2 text-2xl font-bold lg:text-3xl">{book.Title}</h1>
+            <h2 className="mb-2 text-lg italic font-medium lg:text-2xl">
+                {book.authors.join(", ")}
+            </h2>
+            <p className="mb-2 text-sm lg:text-lg">{book.description}</p>
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                <p className="mb-2 text-sm lg:text-base">
+                    <strong className="underline text-eclipse">Publisher:</strong>{" "}
+                    {book.publisher}
                 </p>
-                <p className="text-sm lg:text-base mb-2">
-                    <strong className="underline text-eclipse">Published Date:</strong> {book.publishedDate}
+                <p className="mb-2 text-sm lg:text-base">
+                    <strong className="underline text-eclipse">Published Date:</strong>{" "}
+                    {book.publishedDate}
                 </p>
-                <p className="text-sm lg:text-base mb-2">
-                    <strong className="underline text-eclipse">Categories:</strong> {book.categories.join(", ")}
+                <p className="mb-2 text-sm lg:text-base">
+                    <strong className="underline text-eclipse">Categories:</strong>{" "}
+                    {book.categories.join(", ")}
                 </p>
-                <p className="text-sm lg:text-base mb-2">
-                    <strong className="underline text-eclipse">Ratings Count:</strong> {book.ratingsCount}
+                <p className="mb-2 text-sm lg:text-base">
+                    <strong className="underline text-eclipse">Ratings Count:</strong>{" "}
+                    {book.ratingsCount}
                 </p>
             </div>
-            <a href={book.infoLink} target="_blank" rel="noreferrer" className="mt-4 inline-block bg-eclipse rounded-lg font-bold text-lg lg:text-xl transition-colors duration-200 ease-in-out hover:bg-whittext-white hover:text-moonstone_blue py-2 px-4">More info</a>
+            <a
+                href={book.infoLink}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block px-4 py-2 mt-4 text-lg font-bold transition-colors duration-200 ease-in-out rounded-lg hover:bg-whittext-white bg-eclipse hover:text-moonstone_blue lg:text-xl"
+            >
+                More info
+            </a>
         </div>
     </motion.div>
 );

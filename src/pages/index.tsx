@@ -6,6 +6,7 @@ import Header from "~/components/Header";
 import BookGrid from "~/components/BookGrid";
 import type Book from "~/types/Book";
 import Footer from "~/components/Footer";
+import { FallingLines } from "react-loader-spinner";
 
 const quicksand = Quicksand({
   weight: ["300", "400", "500", "600", "700"],
@@ -26,7 +27,7 @@ const Home: NextPage = () => {
     <>
       <div className={`${quicksand.variable}`}>
         <Header />
-        <div className="flex min-h-screen flex-col items-center justify-center  px-4 pt-12 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-center min-h-screen px-4 pt-12 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center">
             <h2 className="mb-4 text-6xl font-bold text-moonstone_blue">
               Hear the Call of the Books! 📣📚
@@ -41,12 +42,21 @@ const Home: NextPage = () => {
             >
               <textarea
                 onChange={(event) => setInputValue(event.target.value)}
-                className="bg-wild_blue_yonder mb-8 w-full rounded-lg p-3 text-xl text-white placeholder:text-white transition-all duration-200 ease-in-out focus:scale-105 focus:outline-none"
+                className="w-full p-3 mb-8 text-xl text-white transition-all duration-200 ease-in-out rounded-lg bg-wild_blue_yonder placeholder:text-white focus:scale-105 focus:outline-none"
                 rows={6}
                 placeholder="Type your story..."
               ></textarea>
-              <button className=" w-full rounded-lg bg-moonstone_blue px-4 py-3 text-xl font-bold text-white transition-colors duration-200 ease-in-out hover:bg-wild_blue_yonder">
-                Search
+              <button className="flex items-center justify-center w-full px-4 py-3 text-xl font-bold text-center text-white transition-colors duration-200 ease-in-out rounded-lg bg-moonstone_blue hover:bg-wild_blue_yonder">
+                {/* Search */}{
+                  isLoading ?
+                    <FallingLines
+                      color="#FFF"
+                      width="30"
+                      visible={true}
+
+                    /> : "Search"
+                }
+
               </button>
             </form>
           </div>

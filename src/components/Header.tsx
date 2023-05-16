@@ -3,7 +3,7 @@ import Image from "next/image"
 
 const Header = () => {
     return (
-        <header className=" py-6 px-4 sm:px-6 lg:px-8  w-full z-10">
+        <header className="z-10 w-full px-4 py-6 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
                 <div className="flex items-center">
                     <Image
@@ -11,7 +11,7 @@ const Header = () => {
                         height={56}
                         src="https://img.icons8.com/external-itim2101-lineal-color-itim2101/64/external-book-back-to-school-itim2101-lineal-color-itim2101.png" alt="Book Whisperer Logo" />
 
-                    <div className="ml-8 text-manatee text-2xl font-bold">
+                    <div className="ml-8 text-2xl font-bold text-manatee">
                         Book Whisperer
                     </div>
                 </div>
