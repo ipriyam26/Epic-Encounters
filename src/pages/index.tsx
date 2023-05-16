@@ -7,8 +7,8 @@ import BookGrid from "~/components/BookGrid";
 import type Book from "~/types/Book";
 import Footer from "~/components/Footer";
 import { FallingLines } from "react-loader-spinner";
-// import json from public data.json
 import queries from "public/data.json"
+import Head from "next/head"
 
 const quicksand = Quicksand({
   weight: ["300", "400", "500", "600", "700"],
@@ -44,11 +44,16 @@ const Home: NextPage = () => {
     mutate({ text: inputValue });
   };
 
-  // const backgroundTexts = "Labore esse reprehenderit eiusmod. Nulla mollit excepteur laboris dolor est esse. Amet consectetur ex aliqua nulla fugiat eu quis occaecat nulla enim sit adipisicing cupidatat. Eu laborum labore qui fugiat sint ut. Labore incididunt fugiat nisi qui incididunt ex non ipsum. Pariatur irure non est. Cillum Lorem incididunt Lorem cupidatat do aliquip officia commodo non dolor excepteur duis voluptate. Nostrud veniam aliqua elit proident ullamco esse veniam fugiat proident. Do magna dolore ut eu labore minim elit est et minim Lorem nulla. Occaecat ex culpa cupidatat veniam amet dolor adipisicing commodo est sint aliquip. Fugiat Lorem ea laborum id ut esse sunt enim nulla nostrud cupidatat minim aliquip nisi. Do minim dolor ullamco. Enim proident cillum adipisicing. Elit dolor ipsum fugiat quis amet voluptate eiusmod et proident. Aute id aliqua veniam et nostrud amet do elit ex mollit amet cillum qui. Culpa veniam non non deserunt cillum ea in officia. Sint mollit aliquip adipisicing laboris. Dolore labore amet sit cupidatat cupidatat nulla. Eu esse eiusmod commodo sit consectetur qui nulla pariatur est nisi. Veniam nulla sit anim excepteur ex sint elit eu sunt cillum est nulla ipsum. Dolor qui sit reprehenderit. Adipisicing excepteur duis aute irure consectetur fugiat. Deserunt sit dolore et laboris ad excepteur nisi qui proident sunt nostrud cillum excepteur deserunt. Nostrud minim cupidatat sit. Aliqua non laboris officia culpa aliquip velit Lorem occaecat amet officia duis exercitation consequat aliqua nisi. Reprehenderit ex tempor do non tempor aliqua exercitation sit do ut excepteur consequat adipisicing ex."
 
 
   return (
+
     <>
+      <Head>
+        <title>
+          Book Whisperer
+        </title>
+      </Head>
       <div className={`${quicksand.variable}`}>
         <Header />
         <div className="relative flex flex-col items-center justify-center min-h-screen px-4 pt-12 sm:px-6 lg:px-8">
@@ -87,7 +92,7 @@ const Home: NextPage = () => {
               </button>
             </form>
           </div>
-          <div className="mt-12">
+          <div className="mt-12 z-10">
             <BookGrid isLoading={isLoading} books={data?.results || []} selectedBook={selectedBook} setSelectedBook={setSelectedBook} />
           </div>
         </div>
