@@ -23,7 +23,7 @@ const BackgroundText: React.FC<{ texts: string[], setInputValue: Dispatch<SetSta
         {texts.map((text, index) => (
           <span
             onClick={() => setInputValue(text)}
-            key={index} className=" hover:opacity-30 mx-10 my-32 hover:bg-transparent bg-pink-50 text-white opacity-10">
+            key={index} className=" hover:opacity-30 mx-10 my-32 hover:bg-transparent bg-white  text-white opacity-5">
             {text}
             {' '}
           </span>
@@ -63,7 +63,7 @@ const Home: NextPage = () => {
             <h2 className="mb-4 text-6xl font-bold text-moonstone_blue">
               Hear the Call of the Books! 📣📚
             </h2>
-            <p className="mb-4 text-xl text-manatee">
+            <p className="mb-4 text-xl font-bold text-manatee">
               Just enter your preferred plot or book theme, and we&apos;ll reveal the book that&apos;s waiting to whisk you away on a captivating journey.
             </p>
             <form
@@ -85,7 +85,6 @@ const Home: NextPage = () => {
                       color="#FFF"
                       width="35"
                       visible={true}
-
                     /> : "Search"
                 }
 

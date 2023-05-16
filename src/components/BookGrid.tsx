@@ -1,7 +1,7 @@
 // import Loading from "react-loader-spinner"; // Don't forget to install this package!
 import type Book from "~/types/Book";
 import { Book as GridBook } from "./Book";
-import { useMemo, type Dispatch, type SetStateAction } from "react";
+import { useMemo, useCallback, type Dispatch, type SetStateAction } from "react";
 import SelectedBook from "./SelectedBook";
 
 interface BookGridProps {
@@ -14,13 +14,13 @@ interface BookGridProps {
 
 
 const BookGrid = ({ isLoading, books = [], selectedBook, setSelectedBook }: BookGridProps) => {
+  const handleBookClick = useCallback((book: Book) => () => setSelectedBook(book), [setSelectedBook]);
 
 
   const bookComponents = useMemo(() =>
     books.map((book) => <GridBook isSelected={selectedBook?.Title === book.Title} onClick={
-      () => setSelectedBook(book)
-    } key={book.Title} book={book} />),
-    [books, selectedBook?.Title, setSelectedBook]
+      handleBookClick(book)} key={book.Title} book={book} />),
+    [books, handleBookClick, selectedBook?.Title]
   );
 
   return (
@@ -42,7 +42,5 @@ const BookGrid = ({ isLoading, books = [], selectedBook, setSelectedBook }: Book
 };
 
 export default BookGrid;
-function useCallback(arg0: (book: any) => () => void, arg1: Dispatch<SetStateAction<Book | null>>[]) {
-  throw new Error("Function not implemented.");
-}
+
 

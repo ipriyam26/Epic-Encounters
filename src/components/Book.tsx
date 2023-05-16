@@ -39,7 +39,6 @@ export function Book({ book, onClick, isSelected }: BookProps) {
                     className="flex w-full h-40 mx-6 my-4 overflow-hidden transition-all duration-200 ease-in-out transform rounded-lg shadow-lg fadeInUp bg-eclipse hover:scale-105 sm:h-52 md:mx-2 md:max-w-md lg:mx-6 lg:max-w-43 xl:max-w-27"
                 >
                     <img
-                        fetchPriority="low"
                         loading="lazy"
                         decoding="async"
                         height={300}
