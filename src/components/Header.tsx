@@ -11,7 +11,7 @@ const Header = () => {
                         height={56}
                         src="https://img.icons8.com/external-itim2101-lineal-color-itim2101/64/external-book-back-to-school-itim2101-lineal-color-itim2101.png" alt="Book Whisperer Logo" />
 
-                    <div className="ml-8 text-2xl font-bold text-manatee">
+                    <div className="ml-8 text-3xl font-bold text-myrtle_green">
                         Book Whisperer
                     </div>
                 </div>

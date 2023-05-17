@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: #171717;
+  background-color: #071e22;
 }
 
 @keyframes fadeInUp {
@@ -20,4 +20,3 @@ body {
 .fadeInUp {
   animation: fadeInUp 0.5s ease-out;
 }
-

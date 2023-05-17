@@ -4,7 +4,7 @@ import type Book from "~/types/Book";
 const SelectedBook = ({ book }: { book: Book }) => (
     <motion.div
         layoutId={book.Title}
-        className="gap-1 p-6 mx-8 my-10 overflow-hidden transition-all duration-200 ease-in-out transform scale-105 rounded-lg shadow-lg bg-wild_blue_yonder lg:grid lg:grid-cols-4"
+        className="gap-2 p-6 mx-8 my-10 overflow-hidden transition-all duration-200 ease-in-out transform scale-105 rounded-lg shadow-lg bg-dark_jungle_green lg:grid lg:grid-cols-4"
     >
         <motion.div className="rounded-lg sm:bg-eclipse md:mx-44 md:py-10 lg:hidden">
             <motion.img
@@ -20,26 +20,26 @@ const SelectedBook = ({ book }: { book: Book }) => (
             alt={book.Title}
         />
         <div className="flex flex-col justify-around mt-6 text-white lg:col-span-3 lg:mt-0">
-            <h1 className="mb-2 text-2xl font-bold lg:text-3xl">{book.Title}</h1>
-            <h2 className="mb-2 text-lg italic font-medium lg:text-2xl">
+            <h1 className="mb-2 text-2xl text-myrtle_green font-bold lg:text-3xl">{book.Title}</h1>
+            <h2 className="mb-2 text-lg italic text-peach_crayola font-medium lg:text-2xl">
                 {book.authors.join(", ")}
             </h2>
             <p className="mb-2 text-sm lg:text-lg">{book.description}</p>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                 <p className="mb-2 text-sm lg:text-base">
-                    <strong className="underline text-eclipse">Publisher:</strong>{" "}
+                    <strong className="underline text-myrtle_green">Publisher:</strong>{" "}
                     {book.publisher}
                 </p>
                 <p className="mb-2 text-sm lg:text-base">
-                    <strong className="underline text-eclipse">Published Date:</strong>{" "}
+                    <strong className="underline text-myrtle_green">Published Date:</strong>{" "}
                     {book.publishedDate}
                 </p>
                 <p className="mb-2 text-sm lg:text-base">
-                    <strong className="underline text-eclipse">Categories:</strong>{" "}
+                    <strong className="underline text-myrtle_green">Categories:</strong>{" "}
                     {book.categories.join(", ")}
                 </p>
                 <p className="mb-2 text-sm lg:text-base">
-                    <strong className="underline text-eclipse">Ratings Count:</strong>{" "}
+                    <strong className="underline text-myrtle_green">Ratings Count:</strong>{" "}
                     {book.ratingsCount}
                 </p>
             </div>
@@ -47,7 +47,7 @@ const SelectedBook = ({ book }: { book: Book }) => (
                 href={book.infoLink}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-block px-4 py-2 mt-4 text-lg font-bold transition-colors duration-200 ease-in-out rounded-lg hover:bg-whittext-white bg-eclipse hover:text-moonstone_blue lg:text-xl"
+                className="inline-block px-4 py-2 mt-4 text-lg font-bold transition-colors duration-200 ease-in-out rounded-lg hover:bg-white text-white bg-myrtle_green hover:text-myrtle_green lg:text-xl"
             >
                 More info
             </a>
