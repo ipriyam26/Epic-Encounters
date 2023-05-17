@@ -1,4 +1,4 @@
-import { date, z } from "zod";
+import { z } from "zod";
 import { PineconeClient } from "@pinecone-database/pinecone";
 import { env } from "~/env.mjs";
 import {
@@ -88,8 +88,6 @@ const getCurrentDate = () => {
 
 // eslint-disable-next-line @typescript-eslint/require-await
 const saveQueryToDB = async (user_query: string) => {
-  // find the document with id = DD-MM-YYYY of today and store it in the array called queries if not already present create a new document
-  // with id = DD-MM-YYYY and store the query in the array
   const docRef = doc(userQueries, getCurrentDate());
 
   getDoc(docRef)
