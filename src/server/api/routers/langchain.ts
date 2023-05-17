@@ -1,4 +1,4 @@
-import { date, z } from "zod";
+import { z } from "zod";
 import { PineconeClient } from "@pinecone-database/pinecone";
 import { env } from "~/env.mjs";
 import {
@@ -45,6 +45,15 @@ export const langchainRouter = createTRPCRouter({
     }),
 });
 
+interface Metadata {
+  Title: string;
+  Id: string;
+}
+
+interface Document<T = Record<string, string>> {
+  metadata: T & Metadata;
+}
+
 async function search_db(query: string) {
   const client: PineconeClient = new PineconeClient();
   await client.init({
@@ -61,9 +70,18 @@ async function search_db(query: string) {
   );
 
   // /* Search the vector DB independently with meta filters */
-  const results = await vectorStore.similaritySearch(query, 10);
+  const results = (await vectorStore.similaritySearch(
+    query,
+    20
+  )) as unknown as Document<Record<string, string>>[];
+
+  // keep only the unique titles
+  const uniqueResults = getUniqueDocuments(results).slice(0, 12);
+
+  // extend Record<string, any> to Record<string, string>
+
   const books = await findMatchingBooks(
-    results.map((result) => result.metadata["Title"] as string)
+    uniqueResults.map((result) => result.metadata.Title)
   );
   return books;
 }
@@ -114,3 +132,14 @@ const saveQueryToDB = async (user_query: string) => {
     });
   return true;
 };
+function getUniqueDocuments(results: Document<Record<string, string>>[]) {
+  const uniqueTitles = new Set<string>();
+  const uniqueResults = results.filter((result) => {
+    if (uniqueTitles.has(result.metadata.Title)) {
+      return false;
+    }
+    uniqueTitles.add(result.metadata.Title);
+    return true;
+  });
+  return uniqueResults;
+}
