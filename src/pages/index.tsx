@@ -53,6 +53,9 @@ const Home: NextPage = () => {
         <title>
           Book Whisperer
         </title>
+        <meta name="description" content="Find the perfect book based on plot. Search, discover, and dive into your next reading adventure with BookWhisper . No matter the genre or author, we've got you covered." />
+        <meta name="keywords" content="book finder, search book by plot, discover books, reading, literature" />
+
       </Head>
       <div className={`${quicksand.variable}`}>
         <Header />
