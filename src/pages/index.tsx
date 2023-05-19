@@ -63,10 +63,10 @@ const Home: NextPage = () => {
           <BackgroundText texts={queries.map((q) => q.query)} setInputValue={setInputValue} />
 
           <div className="z-10 flex flex-col items-center">
-            <h2 className="mb-4 text-6xl font-bold text-moonstone_blue">
+            <h2 className="mb-4 text-6xl font-bold text-myrtle_green">
               Hear the Call of the Books! 📣📚
             </h2>
-            <p className="mb-4 text-xl font-bold text-manatee">
+            <p className="mb-4 text-xl font-bold text-peach_crayola">
               Just enter your preferred plot or book theme, and we&apos;ll reveal the book that&apos;s waiting to whisk you away on a captivating journey.
             </p>
             <form
@@ -76,12 +76,12 @@ const Home: NextPage = () => {
             >
               <textarea
                 onChange={(event) => setInputValue(event.target.value)}
-                className="w-full p-3 mb-8 text-xl text-white transition-all duration-200 ease-in-out rounded-lg bg-wild_blue_yonder placeholder:text-white focus:scale-105 focus:outline-none"
+                className="w-full p-3 mb-8 text-xl text-white transition-all duration-200 ease-in-out rounded-lg bg-wintergreen_dream placeholder:text-white focus:scale-105 focus:outline-none"
                 rows={6}
                 value={inputValue}
                 placeholder="Type your story..."
               ></textarea>
-              <button className="flex items-center justify-center w-full px-4 py-3 text-xl font-bold text-center text-white transition-colors duration-200 ease-in-out rounded-lg bg-moonstone_blue hover:bg-wild_blue_yonder">
+              <button className="flex items-center justify-center w-full px-4 py-3 text-xl font-bold text-center text-white transition-colors duration-200 ease-in-out rounded-lg bg-myrtle_green hover:bg-dark_jungle_green">
                 {/* Search */}{
                   isLoading ?
                     <FallingLines

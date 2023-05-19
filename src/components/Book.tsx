@@ -48,14 +48,14 @@ export function Book({ book, onClick, isSelected }: BookProps) {
                         alt={book.Title}
                     />
                     <div className="w-full px-6 py-4 sm:w-2/3">
-                        <div className="text-base font-bold md:text-xl text-moonstone_blue sm:text-lg">
+                        <div className="text-base font-bold md:text-xl text-myrtle_green sm:text-lg">
                             {book.Title}
                         </div>
-                        <p className="my-1 text-sm font-bold text-white sm:text-base md:text-lg">
+                        <p className="my-1 text-sm font-bold text-peach_crayola sm:text-base md:text-lg">
                             {book.authors[0]}
                         </p>
 
-                        <p className="text-xs text-manatee sm:text-base">
+                        <p className="text-xs text-white sm:text-base">
                             {book.description.slice(0, 100)}...
                         </p>
                     </div>

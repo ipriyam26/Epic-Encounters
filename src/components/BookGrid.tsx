@@ -27,7 +27,7 @@ const BookGrid = ({ isLoading, books = [], selectedBook, setSelectedBook }: Book
     <>
       {
         books.length === 0 || !isLoading && (
-          <div className="mt-8 mb-4 text-4xl font-bold text-center text-moonstone_blue">
+          <div className="mt-8 mb-4 text-4xl font-bold text-center text-myrtle_green">
             Behold! Here are your results...
           </div>
         )
